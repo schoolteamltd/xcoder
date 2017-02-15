@@ -64,7 +64,8 @@ module Xcode
           unless profile.nil?
             profile.install
             print_task "builder", "Using profile #{profile.install_path}", :debug
-            cmd.env["PROVISIONING_PROFILE"]   = "#{profile.uuid}"
+            #cmd.env["PROVISIONING_PROFILE"]   = "#{profile.uuid}"
+						cmd.env["PROVISIONING_PROFILE_SPECIFIER"]   = "#{profile.name}"
           end
 
           unless @keychain.nil?
